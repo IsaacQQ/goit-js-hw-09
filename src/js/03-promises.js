@@ -1,14 +1,14 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const formRef = document.querySelector('.form')
+const formRef = document.querySelector('.form');
 formRef.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
 
-//принимаем вписаные в инпут значения и получаем их в числах.
+  //принимаем вписаные в инпут значения и получаем их в числах.
   let {
-    elements: { delay, step, amount }
+    elements: { delay, step, amount },
   } = event.currentTarget;
   delay = Number(delay.value);
   step = Number(step.value);
@@ -18,14 +18,19 @@ function onFormSubmit(event) {
     createPromise(position, delay)
       .then(({ position, delay }) => {
         setTimeout(() => {
-          Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, { useIcon: false });
+          Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
+            useIcon: false,
+          });
         }, delay);
       })
       .catch(({ position, delay }) => {
         setTimeout(() => {
-          Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, { useIcon: false });
+          Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, {
+            useIcon: false,
+          });
         }, delay);
       });
+
     delay += step;
   }
 }

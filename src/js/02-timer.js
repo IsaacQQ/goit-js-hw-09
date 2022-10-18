@@ -54,10 +54,7 @@ const refs = {
 //отключаем кнопочку старт
 refs.startBtn.disabled = true;
 
-
-
 const datePicker = flatpickr('#datetime-picker', options);
-
 
 const timer = {
   intervalId: null,
@@ -69,7 +66,7 @@ const timer = {
     }
     const startTime = datePicker.selectedDates[0];
     this.isActive = true;
-//стрелочной функцией задаём параметру интервалАйди условие при котором 1)берётся нынешняя дата и время 2)создаём переменную в которую помещаем вычитание от точки выбранного времени нынешнее время что бы получить необходимые данные для отсчёта времени. 3) чистим наш таймер что бы время не уходило в минус и отключаем кнопку
+    //стрелочной функцией задаём параметру интервалАйди условие при котором 1)берётся нынешняя дата и время 2)создаём переменную в которую помещаем вычитание от точки выбранного времени нынешнее время что бы получить необходимые данные для отсчёта времени. 3) чистим наш таймер что бы время не уходило в минус и отключаем кнопку
     this.intervalId = setInterval(() => {
       const currentTime = Date.now();
       const deltaTime = startTime - currentTime;
@@ -98,4 +95,3 @@ function updateClockface({ days, hours, minutes, seconds }) {
 refs.startBtn.addEventListener('click', () => {
   timer.start();
 });
-
