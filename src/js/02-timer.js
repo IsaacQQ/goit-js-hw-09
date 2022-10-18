@@ -54,7 +54,7 @@ const refs = {
 //отключаем кнопочку старт
 refs.startBtn.disabled = true;
 
-flatpickr('#datetime-picker', options);
+
 
 const datePicker = flatpickr('#datetime-picker', options);
 
